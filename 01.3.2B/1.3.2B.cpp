@@ -32,7 +32,7 @@ void printData(int tableSize, int* table, int* maxw) {
 }
 
 int main() {
-	int tableSize = 4;
+	const int tableSize = 4;
 	int table[tableSize][tableSize];
 	int maxw[tableSize];
 
@@ -40,8 +40,8 @@ int main() {
 		maxw[i] = 0;
 	}
 
-	readData(tableSize, &table[0][0], &maxw[0]);
-	printData(tableSize, &table[0][0], &maxw[0]);
+	readData(tableSize, (int*)table, maxw);
+	printData(tableSize, (int*)table, maxw);
 
 	return 0;
 }
