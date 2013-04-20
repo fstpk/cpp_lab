@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+//iomanip для работы с динамическими массивами
 #include <iomanip>
 
 void readData(int tableSize, int* table, int* maxw) {
