@@ -1,13 +1,11 @@
 #include <iostream>
-using namespace std;
 
-int nyawka(int x) { return x <0? -x: x; }
-
+int nyashka(int x) {return x <0? -x: x;}
 int main() {
-	cout << "Function: f=|2x-|x-3||" << endl << "Enter [x]:" << endl;
+	std::cout << "Function: f=|2x-|x-3||" << std::endl << "Enter [x]:" << std::endl;
 	int x;
-	cin >> x;
-	int result = nyawka(x*2-nyawka(x-3));
-	cout << "result: " << result << endl;
+	std::cin >> x;
+	int result = nyashka(x*2-nyashka(x-3));
+	std::cout << "result: " << result << std::endl;
 	return 0;
 }
