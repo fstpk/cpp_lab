@@ -9,6 +9,10 @@ struct desu {
 
 };
 
+bool operator<(desu& first, desu& second) {
+	return first.b < second.b;
+}
+
 void forEach (desu* array, int size, void(*visitor)(desu*)) {
 	for (int i = 0; i < size; ++i) {
 		visitor(array++);
@@ -20,7 +24,7 @@ void inputElement (desu* element) {
 }
 
 void outputElement (desu* element) {
-	std::cout << (element->a) << " " << (element->b) << " " << (element->perimeter) << " " << (element->volume) << std::endl;
+	std::cout << (element->a) << "	" << (element->b) << "	" << (element->perimeter) << "	" << (element->volume) << std::endl;
 }
 
 void fillPerimeter (desu* element) {
@@ -31,6 +35,7 @@ void fillVolume(desu* element) {
 	element->volume = (element->a) * (element->b) * (element->perimeter);
 }
 
+/*
 void bubbleSort(desu* array, int size) {
 	for (int i = size - 1; i > 0; i--) {
 		for (int j = 0; j < i; j++) {
@@ -42,6 +47,30 @@ void bubbleSort(desu* array, int size) {
 		}
 	}
 }
+*/
+
+void qsort(desu* array, int size) /* DAFUQ! */ {
+	int i = 0;
+	int j = size;
+	desu pivot = array[size / 2];
+	while (i < j) {
+		while (i < size && array[i] < pivot) {
+			i += 1;
+		}
+		do {
+			j -= 1;
+		} while (j >= 0 && pivot < array[j]);
+		if (i <= j) {
+			desu tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
+			i += 1;
+			j -= 1;
+		}
+	}
+	if (j >= 2) { qsort(array, j); }
+	if (i <= (size -2)) { qsort(array + i, size - i); }
+}
 
 int main() {
 	int size;
@@ -50,7 +79,7 @@ int main() {
 	forEach(array, size, inputElement);
 	forEach(array, size, fillPerimeter);	
 	forEach(array, size, fillVolume);
-	bubbleSort(array, size);
+	qsort(array, size);
 	forEach(array, size, outputElement);
 	delete[] array;
 	return 0;
