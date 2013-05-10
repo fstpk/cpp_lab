@@ -6,7 +6,6 @@ struct desu {
 	int b;
 	float perimeter;
 	float volume;
-
 };
 
 bool operator<(desu& first, desu& second) {
@@ -49,7 +48,7 @@ void bubbleSort(desu* array, int size) {
 }
 */
 
-void qsort(desu* array, int size) /* DAFUQ! */ {
+void qSort(desu* array, int size) /* DAFUQ! */ {
 	int i = 0;
 	int j = size;
 	desu pivot = array[size / 2];
@@ -68,8 +67,8 @@ void qsort(desu* array, int size) /* DAFUQ! */ {
 			j -= 1;
 		}
 	}
-	if (j >= 2) { qsort(array, j); }
-	if (i <= (size -2)) { qsort(array + i, size - i); }
+	if (j >= 2) { qSort(array, j); }
+	if (i <= (size -2)) { qSort(array + i, size - i); }
 }
 
 int main() {
@@ -79,7 +78,7 @@ int main() {
 	forEach(array, size, inputElement);
 	forEach(array, size, fillPerimeter);	
 	forEach(array, size, fillVolume);
-	qsort(array, size);
+	qSort(array, size);
 	forEach(array, size, outputElement);
 	delete[] array;
 	return 0;
