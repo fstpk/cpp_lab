@@ -34,7 +34,6 @@ void fillVolume(desu* element) {
 	element->volume = (element->a) * (element->b) * (element->perimeter);
 }
 
-/*
 void bubbleSort(desu* array, int size) {
 	for (int i = size - 1; i > 0; i--) {
 		for (int j = 0; j < i; j++) {
@@ -46,9 +45,9 @@ void bubbleSort(desu* array, int size) {
 		}
 	}
 }
-*/
 
-void qSort(desu* array, int size) /* DAFUQ! */ {
+/*
+void qSort(desu* array, int size) {
 	int i = 0;
 	int j = size;
 	desu pivot = array[size / 2];
@@ -70,6 +69,7 @@ void qSort(desu* array, int size) /* DAFUQ! */ {
 	if (j >= 2) { qSort(array, j); }
 	if (i <= (size -2)) { qSort(array + i, size - i); }
 }
+*/
 
 int main() {
 	int size;
@@ -78,7 +78,8 @@ int main() {
 	forEach(array, size, inputElement);
 	forEach(array, size, fillPerimeter);	
 	forEach(array, size, fillVolume);
-	qSort(array, size);
+//	qSort(array, size);
+	bubbleSort(array, size);
 	forEach(array, size, outputElement);
 	delete[] array;
 	return 0;
