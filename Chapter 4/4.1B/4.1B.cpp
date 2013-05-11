@@ -7,8 +7,8 @@ struct gensokyo {
 	gensokyo *next;
 };
 
-gensokyo Sakuya = {"十六夜 咲夜", 1, 1, 1990, "maid", NULL};
-gensokyo Remilia = {"レミリア・スカーレット", 9, 9, 1503, "scarlet devil", &Sakuya};
+gensokyo Sakuya = {"十六夜 咲夜", 0, 0, 1990, "maid", NULL};
+gensokyo Remilia = {"レミリア・スカーレット", 0, 0, 1503, "scarlet devil", &Sakuya};
 gensokyo *p = &Remilia;
 
 void someFunction() {
